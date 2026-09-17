@@ -3,7 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة الوتين لتنظيم المعارض والمؤتمرات | Al-Wateen Events</title>
+
+    <!-- ================================================================= -->
+    <!-- 1. PRIMARY SEO METADATA -->
+    <!-- ================================================================= -->
+    <title id="metaTitle">شركة الوتين لتنظيم المعارض والمؤتمرات  | Al-Wateen Events</title>
+    <meta name="description" id="metaDescription" content="شركة الوتين هي شريكك الإستراتيجي في إدارة وتنظيم المعارض والمؤتمرات وتصميم الأجنحة في الرياض. تنفيذ متكامل من الفكرة وحتى الافتتاح.">
+    <meta name="keywords" content="تنظيم معارض, تنظيم مؤتمرات, تصميم أجنحة معارض, الرياض, فعاليات الرياض, شركة الوتين, المعارض والمؤتمرات">
+    <meta name="author" content="Al-Wateen Events">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://alwateen-events.com/">
+
+    <!-- ================================================================= -->
+    <!-- 2. FAVICON & APPLE TOUCH ICONS -->
+    <!-- ================================================================= -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#020617">
+
+    <!-- ================================================================= -->
+    <!-- 3. OPEN GRAPH (FACEBOOK, LINKEDIN, WHATSAPP) -->
+    <!-- ================================================================= -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alwateen-events.com/">
+    <meta property="og:site_name" content="شركة الوتين لتنظيم المعارض والمؤتمرات">
+    <meta property="og:title" id="ogTitle" content="شركة الوتين لتنظيم المعارض والمؤتمرات | Al-Wateen Events">
+    <meta property="og:description" id="ogDescription" content="فريق واحد يدير التصميم والتصنيع والتركيب والتشغيل لفعاليتك القادمة في الرياض.">
+    <meta property="og:image" content="https://alwateen-events.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ar_SA">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- ================================================================= -->
+    <!-- 4. TWITTER CARDS -->
+    <!-- ================================================================= -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alwateen-events.com/">
+    <meta name="twitter:title" id="twTitle" content="شركة الوتين لتنظيم المعارض والمؤتمرات">
+    <meta name="twitter:description" id="twDescription" content="حلول متكاملة لتنظيم المعارض والمؤتمرات وتصميم الأجنحة في الرياض.">
+    <meta name="twitter:image" content="https://alwateen-events.com/assets/og-image.jpg">
+
+    <!-- ================================================================= -->
+    <!-- 5. STRUCTURED DATA (SCHEMA.ORG FOR GOOGLE SEO) -->
+    <!-- ================================================================= -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EventVenue",
+      "name": "شركة الوتين لتنظيم المعارض والمؤتمرات",
+      "alternateName": "Al-Wateen Events",
+      "url": "https://alwateen-events.com/",
+      "logo": "https://alwateen-events.com/assets/logo.png",
+      "image": "https://alwateen-events.com/assets/og-image.jpg",
+      "description": "إدارة وتنظيم المعارض والمؤتمرات وتصميم وتنفيد أجنحة المعارض بالرياض.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "الرياض",
+        "addressCountry": "SA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+966500000000",
+        "contactType": "customer service",
+        "email": "info@alwateen-events.com"
+      }
+    }
+    </script>
+
     <style>
         :root {
             --bg-main: #020617;
@@ -281,7 +351,7 @@
             left: 15px;
         }
 
-        /* Arrow Controls */
+        /* Slider Arrows & Indicators */
         .slider-btn {
             position: absolute;
             top: 50%;
@@ -311,7 +381,6 @@
         .slider-btn.prev { left: 10px; }
         .slider-btn.next { right: 10px; }
 
-        /* Dots & Counter */
         .dots-container {
             position: absolute;
             bottom: 12px;
@@ -515,8 +584,13 @@
     <script>
         let currentLang = 'ar';
 
-        const data = {
+        // ==========================================
+        //  CONFIG: SITE METADATA & TRANSLATIONS
+        // ==========================================
+        const siteConfig = {
             ar: {
+                metaTitle: "شركة الوتين لتنظيم المعارض والمؤتمرات بالرياض | Al-Wateen Events",
+                metaDesc: "شركة الوتين هي شريكك الإستراتيجي في إدارة وتنظيم المعارض والمؤتمرات وتصميم الأجنحة في الرياض.",
                 brandName: "الوتين",
                 subBrand: "لتنظيم المعارض والمؤتمرات",
                 navAbout: "من نحن",
@@ -554,6 +628,8 @@
                 footerText: "جميع الحقوق محفوظة © شركة الوتين لتنظيم المعارض والمؤتمرات"
             },
             en: {
+                metaTitle: "Al-Wateen for Exhibitions & Conferences Riyadh | Al-Wateen Events",
+                metaDesc: "Al-Wateen is your strategic partner in exhibition management, conference organization, and booth design in Riyadh.",
                 brandName: "AL-WATEEN",
                 subBrand: "Exhibitions & Conferences",
                 navAbout: "About Us",
@@ -593,7 +669,7 @@
         };
 
         // ==========================================
-        //  إضافة وإدارة صور المشاريع (سهلة ومنظمة)
+        //  CONFIG: PORTFOLIO IMAGES
         // ==========================================
         const projects = [
             {
@@ -624,7 +700,6 @@
             }
         ];
 
-        // مصفوفة لحفظ الفهرس الحالي لكل كارت
         let currentImageIndices = projects.map(() => 0);
 
         function renderPortfolio() {
@@ -639,7 +714,6 @@
                 const card = document.createElement('div');
                 card.className = 'portfolio-card';
 
-                // بناء أسهم التنقل ومؤشرات النقاط إن كانت هناك عدة صور
                 let controlsHtml = '';
                 if (hasMultiple) {
                     const dotsHtml = project.images.map((_, imgIdx) => 
@@ -684,14 +758,10 @@
         function updateCardSlider(projectIdx) {
             const activeImgIdx = currentImageIndices[projectIdx];
             const project = projects[projectIdx];
-
-            // تحديث خلفية الصورة
             const imgEl = document.getElementById(`img-${projectIdx}`);
             if (imgEl) {
                 imgEl.style.backgroundImage = `url('${project.images[activeImgIdx]}')`;
             }
-
-            // إعادة رسم المحتوى الفرعي (تحديث العداد والنقاط النشطة)
             renderPortfolio();
         }
 
@@ -700,7 +770,14 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
 
-            const t = data[currentLang];
+            const t = siteConfig[currentLang];
+            
+            // Dynamic Meta Tag Updates
+            document.title = t.metaTitle;
+            document.querySelector('meta[name="description"]').setAttribute("content", t.metaDesc);
+            document.querySelector('meta[property="og:title"]').setAttribute("content", t.metaTitle);
+            document.querySelector('meta[property="og:description"]').setAttribute("content", t.metaDesc);
+
             for (let key in t) {
                 const el = document.getElementById(key);
                 if (el) el.textContent = t[key];
