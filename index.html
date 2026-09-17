@@ -1,396 +1,716 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض ويف الخليج | Gulf Wave Expo 2026</title>
-    <!-- Tailwind CSS CDN with RTL support -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            400: '#F3C65E',
-                            500: '#D4AF37',
-                            600: '#AA820A',
-                        },
-                        navy: {
-                            800: '#0B192C',
-                            900: '#1E201E',
-                            950: '#070D18',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Tajawal', 'Segoe UI', 'Roboto', 'sans-serif'],
-                    }
-                }
-            }
+    <title>شركة الوتين لتنظيم المعارض والمؤتمرات | Al-Wateen Events</title>
+    <style>
+        :root {
+            --bg-main: #020617;
+            --bg-card: #0f172a;
+            --bg-card-hover: #1e293b;
+            --border-color: #334155;
+            --primary: #f59e0b;
+            --primary-hover: #d97706;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
-    </script>
-    <!-- Google Fonts for Arabic & English Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .lang-btn {
+            background-color: var(--bg-card);
+            color: var(--primary);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 20px 80px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: #020617;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Section Commons */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: rgba(15, 23, 42, 0.5);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Services Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        .card-num {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Portfolio Slider Styles */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .portfolio-slider {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.4s ease-in-out;
+        }
+
+        .portfolio-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(2, 6, 23, 0.85);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            z-index: 10;
+        }
+
+        [dir="ltr"] .portfolio-tag {
+            right: auto;
+            left: 15px;
+        }
+
+        /* Arrow Controls */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(2, 6, 23, 0.7);
+            color: var(--primary);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .slider-btn:hover {
+            background: var(--primary);
+            color: #020617;
+        }
+
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+
+        /* Dots & Counter */
+        .dots-container {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        .img-counter {
+            position: absolute;
+            bottom: 12px;
+            left: 15px;
+            background: rgba(2, 6, 23, 0.75);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            z-index: 10;
+            direction: ltr;
+        }
+
+        [dir="ltr"] .img-counter {
+            left: auto;
+            right: 15px;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-link-text {
+            color: var(--primary);
+            font-size: 0.85rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
-<body class="bg-navy-950 text-slate-100 font-sans antialiased overflow-x-hidden">
+<body>
 
-    <!-- NAVIGATION BAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-navy-900/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-gold-500 to-amber-300 flex items-center justify-center text-navy-950 font-bold text-xl shadow-lg shadow-gold-500/20">
-                        <i class="fa-solid font-bold fa-water"></i>
-                    </div>
-                    <span class="text-xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-gold-400">
-                        <span id="nav-logo-ar">معرض ويف الخليج</span>
-                        <span id="nav-logo-en" class="hidden">GULF WAVE EXPO</span>
-                    </span>
-                </div>
-
-                <!-- Desktop Links -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#about" class="text-sm font-medium hover:text-gold-400 transition-colors" data-ar="عن المعرض" data-en="About">عن المعرض</a>
-                    <a href="#highlights" class="text-sm font-medium hover:text-gold-400 transition-colors" data-ar="المميزات" data-en="Highlights">المميزات</a>
-                    <a href="#speakers" class="text-sm font-medium hover:text-gold-400 transition-colors" data-ar="المتحدثون" data-en="Speakers">المتحدثون</a>
-                    <a href="#contact" class="text-sm font-medium hover:text-gold-400 transition-colors" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
-                </div>
-
-                <!-- Action Buttons & Language Switcher -->
-                <div class="flex items-center gap-4">
-                    <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full border border-slate-700 hover:border-gold-500 text-xs font-semibold text-gold-400 flex items-center gap-2 transition">
-                        <i class="fa-solid fa-globe"></i>
-                        <span id="lang-btn-text">English</span>
-                    </button>
-                    <a href="#contact" class="hidden sm:inline-block px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-500 to-amber-400 text-navy-950 font-bold text-sm hover:opacity-90 shadow-lg shadow-gold-500/20 transition" data-ar="تواصل معنا" data-en="Contact Us">
-                        تواصل معنا
-                    </a>
-                </div>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-title" id="brandName">الوتين</span>
+                <span class="logo-sub" id="subBrand">لتنظيم المعارض والمؤتمرات</span>
             </div>
+            <ul class="nav-links">
+                <li><a href="#about" id="navAbout">من نحن</a></li>
+                <li><a href="#services" id="navServices">خدماتنا</a></li>
+                <li><a href="#portfolio" id="navPortfolio">أعمالنا</a></li>
+                <li><a href="#contact" id="navContact">تواصل معنا</a></li>
+            </ul>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
         </div>
-    </nav>
+    </header>
 
-    <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-navy-800 via-navy-950 to-black">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        
-        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-sm font-medium">
-                <i class="fa-regular fa-calendar-check"></i>
-                <span data-ar="24 - 26 نوفمبر 2026 | مركز المعارض، الرياض" data-en="Nov 24 - 26, 2026 | Exhibition Center, Riyadh">24 - 26 نوفمبر 2026 | مركز المعارض، الرياض</span>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="badge" id="heroBadge">حلول متكاملة بدون تشتيت</span>
+        <h1 id="heroTitle">ما الذي ننفذه؟ من الفكرة الأولى حتى لحظة الافتتاح</h1>
+        <p id="heroDesc">فريق واحد يدير التصميم والتصنيع والتركيب والتشغيل، لتصل إلى النتيجة دون تشتيت بين عدة موردين.</p>
+        <a href="https://wa.me/966500000000?text=مرحباً%20شركة%20الوتين،%20أود%20الاستفسار%20عن%20تنظيم%20فعالية/معرض" target="_blank" class="cta-btn">
+            <span>💬</span>
+            <span id="heroCta">تحدث معنا عبر الواتساب</span>
+        </a>
+    </section>
 
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
-                <span data-ar="الملتقى الرائد للاستثمار والتكنولوجيا في الخليج" data-en="The Premier GCC Business & Innovation Expo">
-                    الملتقى الرائد للاستثمار والتكنولوجيا في الخليج
-                </span>
-            </h1>
-
-            <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed" data-ar="منصة تجمع بين كبرى الشركات العالمية وقادة الصناعة وصناع القرار لبناء شراكات استراتيجية واستكشاف أحدث التقنيات." data-en="Connecting industry leaders, global innovators, and key decision-makers to foster strategic partnerships and shape the future of business in the region.">
-                منصة تجمع بين كبرى الشركات العالمية وقادة الصناعة وصناع القرار لبناء شراكات استراتيجية واستكشاف أحدث التقنيات.
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" id="aboutTitle" style="color: var(--primary);">من نحن</h2>
+            <p class="about-content" id="aboutDesc">
+                شركة الوتين هي شريكك الإستراتيجي في إدارة وتنظيم المعارض والمؤتمرات في الرياض. ندمج بين التخطيط الدقيق، التصميم الإبداعي، والتنفيذ الاحترافي لنقدم فعاليات تتجاوز التوقعات وتعزز حضور علامتك التجارية.
             </p>
+        </div>
+    </section>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-400 text-navy-950 font-bold text-base hover:opacity-90 shadow-xl shadow-gold-500/20 transition flex items-center justify-center gap-3">
-                    <span data-ar="تواصل للحجز والاستفسار" data-en="Get in Touch">تواصل للحجز والاستفسار</span>
-                    <i class="fa-solid fa-arrow-left text-sm rtl:inline-block ltr:hidden"></i>
-                    <i class="fa-solid fa-arrow-right text-sm ltr:inline-block rtl:hidden"></i>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title" id="servicesTitle">خدماتنا الرئيسية</h2>
+            <p class="section-desc" id="servicesSub">خدمات متكاملة تغطي كافة جوانب الفعالية</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h3 id="srv1Title">تصميم أجنحة المعارض</h3>
+                    <p id="srv1Desc">نحوّل هوية علامتك إلى مساحة مدروسة تجذب الزوار وتدعم هدف مشاركتك.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h3 id="srv2Title">التصنيع والتنفيذ</h3>
+                    <p id="srv2Desc">إدارة دقيقة للتصنيع والتركيب والتشطيبات حتى يصبح التصميم واقعًا جاهزًا.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">03</div>
+                    <h3 id="srv3Title">تنظيم الفعاليات</h3>
+                    <p id="srv3Desc">تخطيط وتشغيل متكامل للتجارب والفعاليات المؤسسية داخل الرياض.</p>
+                </div>
+                <div class="card">
+                    <div class="card-num">04</div>
+                    <h3 id="srv4Title">التجهيزات المؤقتة</h3>
+                    <p id="srv4Desc">واجهات، منصات تصوير، مناطق استقبال وتجارب موسمية مصممة حسب الموقع.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" style="background-color: rgba(15, 23, 42, 0.3);">
+        <div class="container">
+            <h2 class="section-title" id="portfolioTitle">أعمالنا السابقة</h2>
+            <p class="section-desc" id="portfolioSub">مشاريع تم تنفيذها بأعلى معايير الجودة من التصميم إلى الواقع</p>
+
+            <div class="portfolio-grid" id="portfolioContainer">
+                <!-- Dynamic Portfolio Cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" id="contactTitle">تواصل معنا مباشرة</h2>
+            <p class="section-desc" id="contactSub">فريقنا جاهز لمناقشة مشروعك وتحويل أفكارك إلى واقع</p>
+
+            <div class="grid" style="max-width: 900px; margin: 0 auto;">
+                <a href="mailto:info@alwateen-events.com?subject=استفسار%20عن%20خدمات%20شركة%20الوتين" class="card contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3 id="cEmailTitle">البريد الإلكتروني</h3>
+                    <p style="direction: ltr;">info@alwateen-events.com</p>
+                    <div class="contact-link-text" id="cEmailBtn">إرسال بريد إلكتروني ←</div>
                 </a>
-                <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-slate-700 bg-slate-900/50 hover:bg-slate-800 text-white font-semibold text-base transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download text-gold-400"></i>
-                    <span data-ar="تحميل كتيب المعرض" data-en="Download Brochure">تحميل كتيب المعرض</span>
+
+                <a href="https://wa.me/966500000000?text=مرحباً%20شركة%20الوتين،%20أود%20الاستفسار%20عن%20خدماتكم" target="_blank" class="card contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3 id="cPhoneTitle">الهاتف والواتساب</h3>
+                    <p style="direction: ltr;">+966 50 000 0000</p>
+                    <div class="contact-link-text" id="cPhoneBtn">محادثة واتساب مباشرة ←</div>
+                </a>
+
+                <a href="https://maps.google.com" target="_blank" class="card contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3 id="cLocTitle">المقر الرئيسي</h3>
+                    <p id="cLocDesc">المملكة العربية السعودية - الرياض</p>
+                    <div class="contact-link-text" id="cLocBtn">عرض على الخريطة ←</div>
                 </a>
             </div>
-
-            <!-- EVENT METRICS -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-slate-800/80">
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-                    <div class="text-3xl font-extrabold text-gold-400">+15,000</div>
-                    <div class="text-xs text-slate-400 mt-1" data-ar="زائر ومتخصص" data-en="Trade Visitors">زائر ومتخصص</div>
-                </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-                    <div class="text-3xl font-extrabold text-gold-400">+350</div>
-                    <div class="text-xs text-slate-400 mt-1" data-ar="شركة عارضة" data-en="Exhibitors">شركة عارضة</div>
-                </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-                    <div class="text-3xl font-extrabold text-gold-400">+40</div>
-                    <div class="text-xs text-slate-400 mt-1" data-ar="دولة مشاركة" data-en="Countries">دولة مشاركة</div>
-                </div>
-                <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
-                    <div class="text-3xl font-extrabold text-gold-400">+50</div>
-                    <div class="text-xs text-slate-400 mt-1" data-ar="متحدث خبير" data-en="Expert Speakers">متحدث خبير</div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-20 bg-navy-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-block text-gold-400 font-bold text-sm tracking-wider uppercase" data-ar="نظرة عامة" data-en="Overview">نظرة عامة</div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-ar="لماذا تختار معرض ويف الخليج؟" data-en="Why Attend Gulf Wave Expo?">لماذا تختار معرض ويف الخليج؟</h2>
-                    <p class="text-slate-300 leading-relaxed" data-ar="يعتبر هذا المعرض الحدث الأول والأبرز في المنطقة الذي يجمع المستثمرين وصناع القرار لتعزيز نمو الأعمال وتبادل الخبرات في بيئة تفاعلية مميزة." data-en="The premier platform in the region connecting investors, decision-makers, and industry leaders to foster business growth and exchange expertise in a dynamic setup.">
-                        يعتبر هذا المعرض الحدث الأول والأبرز في المنطقة الذي يجمع المستثمرين وصناع القرار لتعزيز نمو الأعمال وتبادل الخبرات في بيئة تفاعلية مميزة.
-                    </p>
-                    
-                    <ul class="space-y-4 pt-2">
-                        <li class="flex items-start gap-3 text-slate-300">
-                            <i class="fa-solid fa-circle-check text-gold-400 mt-1"></i>
-                            <span data-ar="لقاءات مباشرة مع كبار المستثمرين والمشترين الدوليين." data-en="Direct B2B meetings with top international buyers & investors.">لقاءات مباشرة مع كبار المستثمرين والمشترين الدوليين.</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-slate-300">
-                            <i class="fa-solid fa-circle-check text-gold-400 mt-1"></i>
-                            <span data-ar="تغطية إعلامية موسعة للعلامات التجارية المشاركة." data-en="Extensive media coverage for exhibiting brands.">تغطية إعلامية موسعة للعلامات التجارية المشاركة.</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-slate-300">
-                            <i class="fa-solid fa-circle-check text-gold-400 mt-1"></i>
-                            <span data-ar="جلسات حوارية وورش عمل تدريبية مع خبراء عالميين." data-en="Panel sessions and workshops featuring global experts.">جلسات حوارية وورش عمل تدريبية مع خبراء عالميين.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="relative">
-                    <div class="w-full h-96 rounded-2xl bg-slate-800 border border-slate-700 relative overflow-hidden flex items-center justify-center">
-                        <div class="absolute inset-0 bg-gradient-to-br from-gold-500/20 via-transparent to-navy-950"></div>
-                        <div class="text-center p-8 relative z-10">
-                            <i class="fa-solid fa-city text-6xl text-gold-400 mb-4"></i>
-                            <h3 class="text-xl font-bold text-white mb-2" data-ar="مركز المعارض والمؤتمرات" data-en="Exhibition & Convention Center">مركز المعارض والمؤتمرات</h3>
-                            <p class="text-slate-400 text-sm" data-ar="الرياض، المملكة العربية السعودية" data-en="Riyadh, Kingdom of Saudi Arabia">الرياض، المملكة العربية السعودية</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HIGHLIGHTS SECTION -->
-    <section id="highlights" class="py-20 bg-navy-950 relative border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-block text-gold-400 font-bold text-sm tracking-wider uppercase" data-ar="أبرز الفعاليات" data-en="Event Highlights">أبرز الفعاليات</div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-ar="ماذا يقدم المعرض للزوار والمشاركين؟" data-en="What Does the Expo Offer?">ماذا يقدم المعرض للزوار والمشاركين؟</h2>
-                <p class="text-slate-400 text-sm sm:text-base" data-ar="مجموعة متنوعة من الفعاليات المصممة لتعزيز تجربة التواصل والاستثمار" data-en="A curated range of features designed to enhance networking and investment opportunities">مجموعة متنوعة من الفعاليات المصممة لتعزيز تجربة التواصل والاستثمار</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Highlight 1 -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-8 hover:border-gold-500/50 transition duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-handshake"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3" data-ar="منصة اللقاءات الثنائية (B2B)" data-en="B2B Matchmaking Platform">منصة اللقاءات الثنائية (B2B)</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-ar="جلسات تعارف وجدول مواعيد مسبق يربط بين المستثمرين وكبار التنفيذيين لتسهيل عقد صفقات مباشرة." data-en="Pre-scheduled one-on-one meetings connecting investors with C-level executives to drive deal-making.">جلسات تعارف وجدول مواعيد مسبق يربط بين المستثمرين وكبار التنفيذيين لتسهيل عقد صفقات مباشرة.</p>
-                </div>
-
-                <!-- Highlight 2 -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-8 hover:border-gold-500/50 transition duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3" data-ar="منطقة الابتكار والشركات الناشئة" data-en="Innovation & Startup Zone">منطقة الابتكار والشركات الناشئة</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-ar="عرض لأحدث التقنيات والحلول المبتكرة المقدمة من أكثر الشركات الناشئة واعدة في المنطقة." data-en="Showcasing cutting-edge technology and innovative solutions from the region's most promising startups.">عرض لأحدث التقنيات والحلول المبتكرة المقدمة من أكثر الشركات الناشئة واعدة في المنطقة.</p>
-                </div>
-
-                <!-- Highlight 3 -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-8 hover:border-gold-500/50 transition duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3" data-ar="مؤتمرات ورش عمل متخصصة" data-en="Keynote Conferences">مؤتمرات ورش عمل متخصصة</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed" data-ar="أكثر من 30 ورشة عمل يلقيها خبراء تناقش توجهات السوق، الاستثمار المستدام، والتحول الرقمي." data-en="Over 30 expert workshops covering market trends, sustainable investment, and digital transformation.">أكثر من 30 ورشة عمل يلقيها خبراء تناقش توجهات السوق، الاستثمار المستدام، والتحول الرقمي.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SPEAKERS SECTION -->
-    <section id="speakers" class="py-20 bg-navy-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-block text-gold-400 font-bold text-sm tracking-wider uppercase" data-ar="قادة الفكر" data-en="Keynote Speakers">قادة الفكر</div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-ar="المتحدثون البارزون في المعرض" data-en="Featured Speakers">المتحدثون البارزون في المعرض</h2>
-                <p class="text-slate-400 text-sm sm:text-base" data-ar="نخبة من كبار الخبراء والرؤساء التنفيذيين في مختلف القطاعات الاقتصادية" data-en="Hear from industry pioneers and visionary business executives">نخبة من كبار الخبراء والرؤساء التنفيذيين في مختلف القطاعات الاقتصادية</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Speaker 1 -->
-                <div class="bg-navy-950 border border-slate-800 rounded-2xl overflow-hidden group hover:border-gold-500/40 transition">
-                    <div class="h-64 bg-slate-800 relative flex items-center justify-center text-slate-600">
-                        <i class="fa-solid fa-user text-6xl group-hover:text-gold-400 transition"></i>
-                    </div>
-                    <div class="p-6 text-center">
-                        <h4 class="text-lg font-bold text-white mb-1" data-ar="د. خالد المنصوري" data-en="Dr. Khaled Al-Mansoori">د. خالد المنصوري</h4>
-                        <p class="text-gold-400 text-xs font-semibold mb-3" data-ar="مستشار الاستثمار والتكنولوجيا" data-en="Investment & Tech Advisor">مستشار الاستثمار والتكنولوجيا</p>
-                        <p class="text-slate-400 text-xs" data-ar="مجموعة الخليج الاستثمارية" data-en="GCC Investment Group">مجموعة الخليج الاستثمارية</p>
-                    </div>
-                </div>
-
-                <!-- Speaker 2 -->
-                <div class="bg-navy-950 border border-slate-800 rounded-2xl overflow-hidden group hover:border-gold-500/40 transition">
-                    <div class="h-64 bg-slate-800 relative flex items-center justify-center text-slate-600">
-                        <i class="fa-solid fa-user text-6xl group-hover:text-gold-400 transition"></i>
-                    </div>
-                    <div class="p-6 text-center">
-                        <h4 class="text-lg font-bold text-white mb-1" data-ar="سارة العتيبي" data-en="Sarah Al-Otaibi">سارة العتيبي</h4>
-                        <p class="text-gold-400 text-xs font-semibold mb-3" data-ar="الرئيس التنفيذي للابتكار" data-en="Chief Innovation Officer">الرئيس التنفيذي للابتكار</p>
-                        <p class="text-slate-400 text-xs" data-ar="شركة حلول المستقبل" data-en="Future Solutions Co.">شركة حلول المستقبل</p>
-                    </div>
-                </div>
-
-                <!-- Speaker 3 -->
-                <div class="bg-navy-950 border border-slate-800 rounded-2xl overflow-hidden group hover:border-gold-500/40 transition">
-                    <div class="h-64 bg-slate-800 relative flex items-center justify-center text-slate-600">
-                        <i class="fa-solid fa-user text-6xl group-hover:text-gold-400 transition"></i>
-                    </div>
-                    <div class="p-6 text-center">
-                        <h4 class="text-lg font-bold text-white mb-1" data-ar="م. أحمد الشمري" data-en="Eng. Ahmed Al-Shammari">م. أحمد الشمري</h4>
-                        <p class="text-gold-400 text-xs font-semibold mb-3" data-ar="مدير قطاع الطاقة المستدامة" data-en="Director of Sustainable Energy">مدير قطاع الطاقة المستدامة</p>
-                        <p class="text-slate-400 text-xs" data-ar="مؤسسة الطاقة الخضراء" data-en="Green Energy Corp">مؤسسة الطاقة الخضراء</p>
-                    </div>
-                </div>
-
-                <!-- Speaker 4 -->
-                <div class="bg-navy-950 border border-slate-800 rounded-2xl overflow-hidden group hover:border-gold-500/40 transition">
-                    <div class="h-64 bg-slate-800 relative flex items-center justify-center text-slate-600">
-                        <i class="fa-solid fa-user text-6xl group-hover:text-gold-400 transition"></i>
-                    </div>
-                    <div class="p-6 text-center">
-                        <h4 class="text-lg font-bold text-white mb-1" data-ar="ليلى الهاشمي" data-en="Laila Al-Hashemi">ليلى الهاشمي</h4>
-                        <p class="text-gold-400 text-xs font-semibold mb-3" data-ar="خبيرة الاقتصاد الرقمي" data-en="Digital Economy Expert">خبيرة الاقتصاد الرقمي</p>
-                        <p class="text-slate-400 text-xs" data-ar="مركز التنمية الإقليمية" data-en="Regional Dev Center">مركز التنمية الإقليمية</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT INFORMATIONS SECTION -->
-    <section id="contact" class="py-20 bg-navy-950 relative border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-block text-gold-400 font-bold text-sm tracking-wider uppercase" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-ar="معلومات الاتصال واستفسارات المعرض" data-en="Get in Touch with Us">معلومات الاتصال واستفسارات المعرض</h2>
-                <p class="text-slate-400 text-sm sm:text-base" data-ar="يسعدنا الرد على جميع استفسارات العارضين والزوار عبر القنوات التالية" data-en="We are happy to assist exhibitors and visitors through the following channels">يسعدنا الرد على جميع استفسارات العارضين والزوار عبر القنوات التالية</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <!-- Phone -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-gold-500/40 transition">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2" data-ar="الهاتف" data-en="Phone">الهاتف</h3>
-                    <p class="text-slate-400 text-sm ltr" dir="ltr">+966 11 234 5678</p>
-                    <p class="text-slate-400 text-sm ltr" dir="ltr">+966 50 123 4567</p>
-                </div>
-
-                <!-- Email -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-gold-500/40 transition">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</h3>
-                    <p class="text-slate-400 text-sm">info@gulfwavexpo.com</p>
-                    <p class="text-slate-400 text-sm">sales@gulfwavexpo.com</p>
-                </div>
-
-                <!-- Location -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-gold-500/40 transition">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2" data-ar="الموقع والمركز" data-en="Location">الموقع والمركز</h3>
-                    <p class="text-slate-400 text-sm" data-ar="مركز المعارض والمؤتمرات" data-en="Exhibition & Convention Center">مركز المعارض والمؤتمرات</p>
-                    <p class="text-slate-400 text-sm" data-ar="الرياض، المملكة العربية السعودية" data-en="Riyadh, Saudi Arabia">الرياض، المملكة العربية السعودية</p>
-                </div>
-
-                <!-- Hours -->
-                <div class="bg-navy-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-gold-500/40 transition">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2" data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h3>
-                    <p class="text-slate-400 text-sm" data-ar="الأحد - الخميس: 9:00 ص - 6:00 م" data-en="Sun - Thu: 9:00 AM - 6:00 PM">الأحد - الخميس: 9:00 ص - 6:00 م</p>
-                    <p class="text-slate-400 text-sm" data-ar="الجمعة - السبت: مغلق" data-en="Fri - Sat: Closed">الجمعة - السبت: مغلق</p>
-                </div>
-            </div>
-
-            <!-- Social Links / Quick Support Callout -->
-            <div class="bg-navy-900 border border-slate-800 rounded-2xl p-8 max-w-3xl mx-auto text-center space-y-6">
-                <h3 class="text-xl font-bold text-white" data-ar="تابعنا على شبكات التواصل الاجتماعي" data-en="Follow Us on Social Media">تابعنا على شبكات التواصل الاجتماعي</h3>
-                <div class="flex justify-center items-center gap-4">
-                    <a href="#" class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 text-gold-400 hover:border-gold-500 hover:bg-gold-500 hover:text-navy-950 transition flex items-center justify-center text-lg">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 text-gold-400 hover:border-gold-500 hover:bg-gold-500 hover:text-navy-950 transition flex items-center justify-center text-lg">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 text-gold-400 hover:border-gold-500 hover:bg-gold-500 hover:text-navy-950 transition flex items-center justify-center text-lg">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 text-gold-400 hover:border-gold-500 hover:bg-gold-500 hover:text-navy-950 transition flex items-center justify-center text-lg">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-black border-t border-slate-900 py-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <div class="flex justify-center items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center text-navy-950 font-bold">
-                    <i class="fa-solid fa-water"></i>
-                </div>
-                <span class="text-white font-bold text-lg">معرض ويف الخليج</span>
-            </div>
-            <p data-ar="جميع الحقوق محفوظة © 2026 معرض ويف الخليج" data-en="All Rights Reserved © 2026 Gulf Wave Expo">
-                جميع الحقوق محفوظة © 2026 معرض ويف الخليج
-            </p>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p id="footerText">جميع الحقوق محفوظة © شركة الوتين لتنظيم المعارض والمؤتمرات</p>
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPT -->
+    <!-- JavaScript logic -->
     <script>
         let currentLang = 'ar';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            const html = document.documentElement;
-            const langBtnText = document.getElementById('lang-btn-text');
-            const logoAr = document.getElementById('nav-logo-ar');
-            const logoEn = document.getElementById('nav-logo-en');
-
-            // Toggle HTML attributes for RTL/LTR
-            if (currentLang === 'en') {
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
-                langBtnText.textContent = 'العربية';
-                logoAr.classList.add('hidden');
-                logoEn.classList.remove('hidden');
-            } else {
-                html.setAttribute('lang', 'ar');
-                html.setAttribute('dir', 'rtl');
-                langBtnText.textContent = 'English';
-                logoAr.classList.remove('hidden');
-                logoEn.classList.add('hidden');
+        const data = {
+            ar: {
+                brandName: "الوتين",
+                subBrand: "لتنظيم المعارض والمؤتمرات",
+                navAbout: "من نحن",
+                navServices: "خدماتنا",
+                navPortfolio: "أعمالنا",
+                navContact: "تواصل معنا",
+                langBtn: "English",
+                heroBadge: "حلول متكاملة بدون تشتيت",
+                heroTitle: "ما الذي ننفذه؟ من الفكرة الأولى حتى لحظة الافتتاح",
+                heroDesc: "فريق واحد يدير التصميم والتصنيع والتركيب والتشغيل، لتصل إلى النتيجة دون تشتيت بين عدة موردين.",
+                heroCta: "تحدث معنا عبر الواتساب",
+                aboutTitle: "من نحن",
+                aboutDesc: "شركة الوتين هي شريكك الإستراتيجي في إدارة وتنظيم المعارض والمؤتمرات في الرياض. ندمج بين التخطيط الدقيق، التصميم الإبداعي، والتنفيذ الاحترافي لنقدم فعاليات تتجاوز التوقعات وتعزز حضور علامتك التجارية.",
+                servicesTitle: "خدماتنا الرئيسية",
+                servicesSub: "خدمات متكاملة تغطي كافة جوانب الفعالية",
+                srv1Title: "تصميم أجنحة المعارض",
+                srv1Desc: "نحوّل هوية علامتك إلى مساحة مدروسة تجذب الزوار وتدعم هدف مشاركتك.",
+                srv2Title: "التصنيع والتنفيذ",
+                srv2Desc: "إدارة دقيقة للتصنيع والتركيب والتشطيبات حتى يصبح التصميم واقعًا جاهزًا.",
+                srv3Title: "تنظيم الفعاليات",
+                srv3Desc: "تخطيط وتشغيل متكامل للتجارب والفعاليات المؤسسية داخل الرياض.",
+                srv4Title: "التجهيزات المؤقتة",
+                srv4Desc: "واجهات، منصات تصوير، مناطق استقبال وتجارب موسمية مصممة حسب الموقع.",
+                portfolioTitle: "أعمالنا السابقة",
+                portfolioSub: "مشاريع تم تنفيذها بأعلى معايير الجودة من التصميم إلى الواقع",
+                contactTitle: "تواصل معنا مباشرة",
+                contactSub: "فريقنا جاهز لمناقشة مشروعك وتحويل أفكارك إلى واقع",
+                cEmailTitle: "البريد الإلكتروني",
+                cEmailBtn: "إرسال بريد إلكتروني ←",
+                cPhoneTitle: "الهاتف والواتساب",
+                cPhoneBtn: "محادثة واتساب مباشرة ←",
+                cLocTitle: "المقر الرئيسي",
+                cLocDesc: "المملكة العربية السعودية - الرياض",
+                cLocBtn: "عرض على الخريطة ←",
+                footerText: "جميع الحقوق محفوظة © شركة الوتين لتنظيم المعارض والمؤتمرات"
+            },
+            en: {
+                brandName: "AL-WATEEN",
+                subBrand: "Exhibitions & Conferences",
+                navAbout: "About Us",
+                navServices: "Services",
+                navPortfolio: "Portfolio",
+                navContact: "Contact Us",
+                langBtn: "عربي",
+                heroBadge: "Turnkey Event Solutions",
+                heroTitle: "From Initial Concept to Grand Opening",
+                heroDesc: "One team manages design, manufacturing, installation, and operation—delivering results without vendor management hassle.",
+                heroCta: "Chat on WhatsApp",
+                aboutTitle: "About Us",
+                aboutDesc: "Al-Wateen is your strategic partner in event, conference, and exhibition management in Riyadh. We combine meticulous planning, innovative design, and flawless execution to deliver events that elevate your brand.",
+                servicesTitle: "Our Core Services",
+                servicesSub: "Comprehensive services covering all event aspects",
+                srv1Title: "Exhibition Booth Design",
+                srv1Desc: "We transform your brand identity into a strategic space that engages visitors and supports your event goals.",
+                srv2Title: "Fabrication & Setup",
+                srv2Desc: "Meticulous management of manufacturing, installation, and finishing to turn designs into reality.",
+                srv3Title: "Event Management",
+                srv3Desc: "End-to-end planning and operation of corporate experiences and events in Riyadh.",
+                srv4Title: "Temporary Installations",
+                srv4Desc: "Custom facades, photo zones, lounge areas, and seasonal experiences tailored to your venue.",
+                portfolioTitle: "Our Portfolio",
+                portfolioSub: "Projects executed with precision from initial 3D design to final launch",
+                contactTitle: "Contact Us Directly",
+                contactSub: "Our team is ready to discuss your project and bring your vision to life",
+                cEmailTitle: "Email Us",
+                cEmailBtn: "Send Email ←",
+                cPhoneTitle: "Phone & WhatsApp",
+                cPhoneBtn: "Direct WhatsApp Chat ←",
+                cLocTitle: "Head Office",
+                cLocDesc: "Riyadh, Kingdom of Saudi Arabia",
+                cLocBtn: "View Location ←",
+                footerText: "All Rights Reserved © Al-Wateen for Exhibitions & Conferences"
             }
+        };
 
-            // Translate all elements with data-ar and data-en
-            document.querySelectorAll('[data-ar]').forEach(el => {
-                if (currentLang === 'en') {
-                    el.textContent = el.getAttribute('data-en');
-                } else {
-                    el.textContent = el.getAttribute('data-ar');
+        // ==========================================
+        //  إضافة وإدارة صور المشاريع (سهلة ومنظمة)
+        // ==========================================
+        const projects = [
+            {
+                location_ar: "الرياض",
+                location_en: "Riyadh",
+                images: [
+                    "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                location_ar: "الرياض",
+                location_en: "Riyadh",
+                images: [
+                    "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            {
+                location_ar: "الرياض",
+                location_en: "Riyadh",
+                images: [
+                    "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80"
+                ]
+            }
+        ];
+
+        // مصفوفة لحفظ الفهرس الحالي لكل كارت
+        let currentImageIndices = projects.map(() => 0);
+
+        function renderPortfolio() {
+            const container = document.getElementById('portfolioContainer');
+            container.innerHTML = '';
+
+            projects.forEach((project, projectIdx) => {
+                const loc = currentLang === 'ar' ? project.location_ar : project.location_en;
+                const activeImgIdx = currentImageIndices[projectIdx];
+                const hasMultiple = project.images.length > 1;
+
+                const card = document.createElement('div');
+                card.className = 'portfolio-card';
+
+                // بناء أسهم التنقل ومؤشرات النقاط إن كانت هناك عدة صور
+                let controlsHtml = '';
+                if (hasMultiple) {
+                    const dotsHtml = project.images.map((_, imgIdx) => 
+                        `<span class="dot ${imgIdx === activeImgIdx ? 'active' : ''}" onclick="goToImage(${projectIdx}, ${imgIdx})"></span>`
+                    ).join('');
+
+                    controlsHtml = `
+                        <button class="slider-btn prev" onclick="changeImage(${projectIdx}, -1)">❮</button>
+                        <button class="slider-btn next" onclick="changeImage(${projectIdx}, 1)">❯</button>
+                        <div class="dots-container">${dotsHtml}</div>
+                        <div class="img-counter">${activeImgIdx + 1} / ${project.images.length}</div>
+                    `;
                 }
+
+                card.innerHTML = `
+                    <div class="portfolio-slider">
+                        <span class="portfolio-tag">${loc}</span>
+                        <div class="portfolio-img" id="img-${projectIdx}" style="background-image: url('${project.images[activeImgIdx]}')"></div>
+                        ${controlsHtml}
+                    </div>
+                `;
+                container.appendChild(card);
             });
         }
+
+        function changeImage(projectIdx, direction) {
+            const totalImages = projects[projectIdx].images.length;
+            let newIndex = currentImageIndices[projectIdx] + direction;
+
+            if (newIndex < 0) newIndex = totalImages - 1;
+            if (newIndex >= totalImages) newIndex = 0;
+
+            currentImageIndices[projectIdx] = newIndex;
+            updateCardSlider(projectIdx);
+        }
+
+        function goToImage(projectIdx, imgIdx) {
+            currentImageIndices[projectIdx] = imgIdx;
+            updateCardSlider(projectIdx);
+        }
+
+        function updateCardSlider(projectIdx) {
+            const activeImgIdx = currentImageIndices[projectIdx];
+            const project = projects[projectIdx];
+
+            // تحديث خلفية الصورة
+            const imgEl = document.getElementById(`img-${projectIdx}`);
+            if (imgEl) {
+                imgEl.style.backgroundImage = `url('${project.images[activeImgIdx]}')`;
+            }
+
+            // إعادة رسم المحتوى الفرعي (تحديث العداد والنقاط النشطة)
+            renderPortfolio();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+
+            const t = data[currentLang];
+            for (let key in t) {
+                const el = document.getElementById(key);
+                if (el) el.textContent = t[key];
+            }
+
+            renderPortfolio();
+        }
+
+        // Initial Load
+        renderPortfolio();
     </script>
 </body>
 </html>
